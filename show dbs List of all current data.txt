@@ -1,0 +1,30 @@
+show dbs = List of all current databases 
+❖ use local = to select a database 
+❖ use school = create a database which doesn't exist 
+❖ show dbs= your database doesn't show up as its empty 
+❖ db.createCollection('students') 
+❖ show dbs   
+❖ db.dropDatabase() = Drop current database (School) 
+❖ show dbs = you don’t have school database 
+
+use school = Even if the database doesn't exist one will be created  
+❖ db.students.insertOne({'name':'Spongebob','age':30,'gpa':8}) 
+❖ db.students.find() = To return all the documents within a collection.  
+❖ db.students.insertMany([{'name':'Patrik','age':38,'gpa':3},{'name':'Sandy','age':27,'gpa':9},{'name':'Gary','age':18,'gpa':6}]) 
+❖ db.students.find() 
+
+db.students.insertOne({'name':'Larry','age':32,'gpa':7.5,'fulltime': false, 'courses':['Biology','chemistry','stat']})
+db.students.find().sort({'name':1}) - 1 -alphabetical order, -1 for reverse
+db.students.find().sort({‘gpa’:1}) # 1- asc, -1 for desc
+db.students.find().sort({gpa:-1}).limit(1)
+
+db.students.updateOne({'name':'Spongebob'},{$set:{'fulltime':true}}) 
+db.students.updateMany({},{$set:{'fulltime':false}}) 
+db.students.deleteOne({'name':'Larry'}) 
+db.students.deleteMany({'age':23})
+
+db.students.find({'name':{$ne:'Spongebob'}})
+db.students.find({'age':{$lt:20}}) 
+➢ db.students.find({age:{$lte:28}})
+
+db.students.find({$and:[{'age':{$lte:24}},{'gpa':{$gte:6}}]})
