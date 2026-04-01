@@ -1,0 +1,27 @@
+CREATE TABLE customer (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(50),
+    city VARCHAR(50)
+);
+
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    order_date DATE,
+    amount DECIMAL(10,2),
+    customer_id INT,
+    FOREIGN KEY (customer_id) 
+    REFERENCES customer(customer_id)
+);
+
+INSERT INTO customer VALUES
+(101, 'John', 'Bangalore'),
+(102, 'Mary', 'Mumbai');
+
+INSERT INTO orders VALUES
+(1, '2026-02-25', 5000.00, 101),
+(2, '2026-02-26', 3000.00, 102);
+
+INSERT INTO orders VALUES
+(3, '2026-02-27', 2000.00, 105);
+
